@@ -15,7 +15,7 @@ pmat = {
             
         if (pm.info.iteration === 0)
         {
-            // this part is only executed once per execution.
+            // this part is only executed once per execution. and this is good!!!.
             
             if (!pm.environment.values.toJSON().length)
             {
