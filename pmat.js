@@ -498,7 +498,7 @@ pmat = {
             pmat.engine.incrementTestCasesIndex();
 
             if (testCases.iteration !== pm.info.iteration) {
-                console.log('Warning: postman iteration number: ' + pm.info.iteration + ' and internal iteration number are decoupled: ' + testCases.index);
+                console.log('Warning: postman iteration number: ' + pm.info.iteration + ' and internal iteration number are decoupled: ' + testCases.iteration);
                 console.log('Warning: pmat.api.loader is usually executed once per request!!!');
             }
 
