@@ -35,9 +35,9 @@ pmat = {
             pm.variables.set('testCases', testCases);
                     
                 
-            if(pm.globals.get('record')) testCases.record = true;
+            if((typeof pm.globals.get('record') === "boolean" && pm.globals.get('record')) || (typeof pm.globals.get('record') === "string" && pm.globals.get('record') === "true")) testCases.record = true;
             else 
-                if(pm.globals.get('recordIni')) testCases.recordIni = true;            
+                if((typeof pm.globals.get('recordIni') === "boolean" && pm.globals.get('recordIni')) || (typeof pm.globals.get('recordIni') === "string" && pm.globals.get('recordIni') === "true")) testCases.recordIni = true;            
                 
             
             let delegateList = pmat.engine.pmGlobalsGetJSON('delegateList');
