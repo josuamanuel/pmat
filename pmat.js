@@ -12,7 +12,7 @@ pmat = {
                 pm.variables.set('flag_' + pm.info.iteration, true);
 
                 if (pm.info.iteration === 0) {
-                    // this part is only executed once per execution. and this is good!!!.
+                    // this part is only executed once per execution. pm.variables.set are stateless after execution.
 
                     if (!pm.environment.values.toJSON().length) {
                         let errorException = {
