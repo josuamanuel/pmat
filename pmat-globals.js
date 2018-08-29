@@ -12,7 +12,7 @@ pmat = {
                 pm.variables.set('flag_' + pm.info.iteration, true);
 
                 if (pm.info.iteration === 0) {
-                    // this part is only executed once per execution. pm.variables.set are stateless after execution.
+                    // this part is only executed once per execution.
 
                     if (!pm.environment.values.toJSON().length) {
                         let errorException = {
@@ -1093,7 +1093,6 @@ pmat = {
         }
     }
 };
-/*
 try {
     pmat.api.loader();
 } catch (e) {
@@ -1106,6 +1105,3 @@ try {
     );
     //postman.setNextRequest('pmat-end');
 }
-*/
-
-module.exports = {pmat:pmat, testCases:testCases};
