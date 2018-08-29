@@ -1106,3 +1106,4 @@ try {
     //postman.setNextRequest('pmat-end');
 }
 
+module.exports({pmat:pmat, testCases:testCases});
