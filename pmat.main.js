@@ -1,6 +1,7 @@
 
 const pmat = {};
 
+//@deleteNextLine
 pmat.api = require('./pmat.api');
 
 const testCases = pmat.api.getTestCases();
@@ -19,4 +20,5 @@ try {
     //postman.setNextRequest('pmat-end');
 }
 
+//@deleteNextLine
 export const testCases = testCases;

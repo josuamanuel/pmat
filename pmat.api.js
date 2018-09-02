@@ -1,8 +1,11 @@
 'use strict';
 
+//@deleteNextLine
 const pmat = {};
 
+//@deleteNextLine
 pmat.engine = require('./pmat.engine');
+//@deleteNextLine
 const testCases = require('./pmat.main');
 
 //let testCases;

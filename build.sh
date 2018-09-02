@@ -1,5 +1,6 @@
-
-cat pmat.api.js | grep -vE 'const\s+testCases\s*=\s*require|pmat\.engine\s*=\s*require|export\s+const|module\.exports' > pmat-globals.js;
-cat pmat.engine.js | grep -vE 'pmat\.engine\s*=\s*require|const\s+pmat\s*=|module\.exports|export\s+const|const\s+testCases|pmat\.util\s*=\s*require' >> pmat-globals.js;
-cat pmat.util.js | grep -vE 'pmat\.engine\s*=\s*require|const\s+pmat\s*=|module\.exports|export\s+const|const\s+testCases|pmat\.util\s*=\s*require' >> pmat-globals.js;
-cat pmat.main.js | grep -vE 'const\s+pmat\s*=|pmat\.api\s*=\s*require|export\s+const|module\.exports' >> pmat-globals.js;
+# sed -e '/@deleteNextLine/ { N; d; }' delete lines meeting regExg (in our case annotation: @deleteNextLine) and next
+# line as well
+sed -e '/@deleteNextLine/ { N; d; }' pmat.api.js > pmat.global.js;
+sed -e '/@deleteNextLine/ { N; d; }' pmat.engine.js >> pmat.global.js;
+sed -e '/@deleteNextLine/ { N; d; }' pmat.util.js >> pmat.global.js;
+sed -e '/@deleteNextLine/ { N; d; }' pmat.main.js >> pmat.global.js;

@@ -1,4 +1,5 @@
 
+//@deleteNextLine
 const pmat = {};
 pmat.util = {
     "getValueObjDoc": "Given object and path find and return the node object in the path or null if not found",
@@ -223,4 +224,5 @@ pmat.util = {
     }
 };
 
+//@deleteNextLine
 module.exports = pmat.util;
