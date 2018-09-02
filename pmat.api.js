@@ -3,7 +3,7 @@
 const pmat = {};
 
 pmat.engine = require('./pmat.engine');
-const testCases = require('./main.js');
+const testCases = require('./pmat.main');
 
 //let testCases;
 
