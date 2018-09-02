@@ -2,7 +2,6 @@
 
 const pmat = {};
 
-const testCases = require('./main.js');
 
 //let testCases;
 
