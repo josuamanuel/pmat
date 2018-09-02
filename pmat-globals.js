@@ -1077,6 +1077,7 @@ pmat.util = {
 
 
 const testCases = pmat.api.getTestCases();
+pm.variables.set('testCases', testCases);
 
 try {
     pmat.api.loader();

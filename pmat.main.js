@@ -4,6 +4,7 @@ const pmat = {};
 pmat.api = require('./pmat.api');
 
 const testCases = pmat.api.getTestCases();
+pm.variables.set('testCases', testCases);
 
 try {
     pmat.api.loader();
