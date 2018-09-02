@@ -72,15 +72,15 @@ pmat.api= {
             if ((typeof pm.globals.get('recordIni') === "boolean" && pm.globals.get('recordIni')) || (typeof pm.globals.get('recordIni') === "string" && pm.globals.get('recordIni') === "true")) testCases.recordIni = true;
 
 
-        let delegateList = pmat.engine.pmGlobalsGetJSON('delegateList');
+        let testAtCaseList = pmat.engine.pmGlobalsGetJSON('testAtCaseList');
 
-        testCases.delegateList = [];
+        testCases.testAtCaseList = [];
 
-        if (delegateList) {
-            if (_.isArray(delegateList)) testCases.delegateList = delegateList;
+        if (testAtCaseList) {
+            if (_.isArray(testAtCaseList)) testCases.testAtCaseList = testAtCaseList;
             else {
-                if (delegateList.indexOf(',') === -1) testCases.delegateList[0] = delegateList;
-                else console.log('ERROR!!!: globals param delegateList is bad formatted. It should be JSON format. example: ["refres"]');
+                if (testAtCaseList.indexOf(',') === -1) testCases.testAtCaseList[0] = testAtCaseList;
+                else console.log('ERROR!!!: globals param testAtCaseList is bad formatted. It should be JSON format. example: ["refres"]');
             }
         }
 
@@ -524,11 +524,11 @@ pmat.engine = {
 
 
         //delegate
-        let delegateList, delegateValue;
-        delegateList = pmat.util.getValueObj(testCases, 'delegateList');
-        // delegateValue by default is false unless it is in the list of delegated.
-        if (delegateList) delegateValue = delegateList.includes(pm.info.requestName);
-        else delegateValue = false;
+        let testAtCaseList, delegateValue;
+        testAtCaseList = pmat.util.getValueObj(testCases, 'testAtCaseList');
+        // delegateValue by default is true. Conditions are at request level unless specified in testAtCaseList.
+        if (testAtCaseList) delegateValue = !testAtCaseList.includes(pm.info.requestName);
+        else delegateValue = true;
 
         let pathDelegate = testCaseIndexValue + '.testConditions.' + pm.info.requestName + '.expectedResponse.' + pm.response.code + '.delegate';
         //delegate is saved if it's NOT well formed

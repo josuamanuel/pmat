@@ -419,11 +419,11 @@ pmat.engine = {
 
 
         //delegate
-        let delegateList, delegateValue;
-        delegateList = pmat.util.getValueObj(testCases, 'delegateList');
-        // delegateValue by default is false unless it is in the list of delegated.
-        if (delegateList) delegateValue = delegateList.includes(pm.info.requestName);
-        else delegateValue = false;
+        let testAtCaseList, delegateValue;
+        testAtCaseList = pmat.util.getValueObj(testCases, 'testAtCaseList');
+        // delegateValue by default is true. Conditions are at request level unless specified in testAtCaseList.
+        if (testAtCaseList) delegateValue = !testAtCaseList.includes(pm.info.requestName);
+        else delegateValue = true;
 
         let pathDelegate = testCaseIndexValue + '.testConditions.' + pm.info.requestName + '.expectedResponse.' + pm.response.code + '.delegate';
         //delegate is saved if it's NOT well formed

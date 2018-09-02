@@ -1,6 +1,12 @@
 
-let {pmat} = require('./pmat');
-let {testCases} = require('./pmat');
+const pmat = {};
+
+pmat.api = require('./pmat.api');
+
+console.log('pmat.api: ', pmat.api);
+
+const testCases = pmat.api.getTestCases();
+
 
 pm = {
     variables:

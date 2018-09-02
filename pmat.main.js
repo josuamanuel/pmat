@@ -21,4 +21,4 @@ try {
 }
 
 //@deleteNextLine
-export const testCases = testCases;
+module.exports = testCases;
