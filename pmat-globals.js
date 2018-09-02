@@ -2,7 +2,6 @@
 
 const pmat = {};
 
-pmat.engine = require('./pmat.engine');
 
 //let testCases;
 
