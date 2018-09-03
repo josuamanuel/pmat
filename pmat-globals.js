@@ -534,7 +534,7 @@ pmat.engine = {
         let pathDelegate = testCaseIndexValue + '.testConditions.' + pm.info.requestName + '.expectedResponse.' + pm.response.code + '.delegate';
         //delegate is saved if it's NOT well formed
         //if(typeof pmat.util.getValueObj(testCases, pathDelegate) !== 'boolean')
-        console.log('pmat.util.setValueObj(',testCases, pathDelegate, delegateValue);
+        console.log('Just before pmat.util.setValueObj(',testCases, pathDelegate, delegateValue);
         pmat.util.setValueObj(testCases, pathDelegate, delegateValue);
 
         //excludeResponseBodyNodes
@@ -873,16 +873,19 @@ pmat.util = {
         }
     },
     "setValueObj": function (obj, valuePath, value) {
-        const MODIFIED = "MODIFIED";
-        const ADDED = "ADDED";
+        const MODIFIED = 'MODIFIED';
+        const ADDED = 'ADDED';
         const CREATED = 'CREATED';
-        const FAILED = "FAILED";
+        const FAILED = 'FAILED';
 
         let result = obj;
         let valueReturn = FAILED;
         let valuePathArray;
 
-        if (obj === undefined || obj === null || valuePath === undefined || valuePath === null) return FAILED;
+        if (obj === undefined || obj === null || valuePath === undefined || valuePath === null)
+        {
+            throw {name:'setValueObjParamsException',msg:'obj: '+ obj + ', valuePath: ' + valuePath + ', value: ' + value};
+        }
 
         try {
             valuePathArray = valuePath.split('.');
@@ -905,10 +908,10 @@ pmat.util = {
                     }
                 }
             }
-            if(valuReturn === FAILED) throw {name:'setValueObjException',msg:obj+': ' + valuePath + ': ' + value};
+            if(valuReturn === FAILED) throw {name:'setValueObjException',msg:'obj: '+ obj + ', valuePath: ' + valuePath + ', value: ' + value};
         }
         catch (e) {
-            console.log('Warning: There was an exception in setValueObj(obj, valuePath, value)... obj: ' + obj + ' valuePath: ' + valuePath + ' value: ' + value);
+            console.log(e + ' Warning: There was an exception in setValueObj(obj, valuePath, value)... obj: ' + obj + ' valuePath: ' + valuePath + ' value: ' + value);
             valueReturn = FAILED;
             return valueReturn;
         }

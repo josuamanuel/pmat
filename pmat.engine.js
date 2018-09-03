@@ -428,7 +428,7 @@ pmat.engine = {
         let pathDelegate = testCaseIndexValue + '.testConditions.' + pm.info.requestName + '.expectedResponse.' + pm.response.code + '.delegate';
         //delegate is saved if it's NOT well formed
         //if(typeof pmat.util.getValueObj(testCases, pathDelegate) !== 'boolean')
-        console.log('pmat.util.setValueObj(',testCases, pathDelegate, delegateValue);
+        console.log('Just before pmat.util.setValueObj(',testCases, pathDelegate, delegateValue);
         pmat.util.setValueObj(testCases, pathDelegate, delegateValue);
 
         //excludeResponseBodyNodes

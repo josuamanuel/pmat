@@ -23,16 +23,19 @@ pmat.util = {
         }
     },
     "setValueObj": function (obj, valuePath, value) {
-        const MODIFIED = "MODIFIED";
-        const ADDED = "ADDED";
+        const MODIFIED = 'MODIFIED';
+        const ADDED = 'ADDED';
         const CREATED = 'CREATED';
-        const FAILED = "FAILED";
+        const FAILED = 'FAILED';
 
         let result = obj;
         let valueReturn = FAILED;
         let valuePathArray;
 
-        if (obj === undefined || obj === null || valuePath === undefined || valuePath === null) return FAILED;
+        if (obj === undefined || obj === null || valuePath === undefined || valuePath === null)
+        {
+            throw {name:'setValueObjParamsException',msg:'obj: '+ obj + ', valuePath: ' + valuePath + ', value: ' + value};
+        }
 
         try {
             valuePathArray = valuePath.split('.');
@@ -55,10 +58,10 @@ pmat.util = {
                     }
                 }
             }
-            if(valuReturn === FAILED) throw {name:'setValueObjException',msg:obj+': ' + valuePath + ': ' + value};
+            if(valuReturn === FAILED) throw {name:'setValueObjException',msg:'obj: '+ obj + ', valuePath: ' + valuePath + ', value: ' + value};
         }
         catch (e) {
-            console.log('Warning: There was an exception in setValueObj(obj, valuePath, value)... obj: ' + obj + ' valuePath: ' + valuePath + ' value: ' + value);
+            console.log(e + ' Warning: There was an exception in setValueObj(obj, valuePath, value)... obj: ' + obj + ' valuePath: ' + valuePath + ' value: ' + value);
             valueReturn = FAILED;
             return valueReturn;
         }
