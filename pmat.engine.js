@@ -422,8 +422,8 @@ pmat.engine = {
         let testAtCaseList, delegateValue;
         testAtCaseList = pmat.util.getValueObj(testCases, 'testAtCaseList');
         // delegateValue by default is true. Conditions are at request level unless specified in testAtCaseList.
-        if (testAtCaseList) delegateValue = !testAtCaseList.includes(pm.info.requestName);
-        else delegateValue = true;
+        delegateValue = true;
+        if (testAtCaseList && testAtCaseList.includes(pm.info.requestName)) delegateValue = false;
 
         let pathDelegate = testCaseIndexValue + '.testConditions.' + pm.info.requestName + '.expectedResponse.' + pm.response.code + '.delegate';
         //delegate is saved if it's NOT well formed
