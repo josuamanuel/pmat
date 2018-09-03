@@ -1,9 +1,6 @@
 'use strict';
 
 
-
-//let testCases;
-
 pmat.api= {    
     "getTestCases": function() {
         if (!pm.variables.get('flag_' + pm.info.iteration)) {
