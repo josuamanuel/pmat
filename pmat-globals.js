@@ -1,6 +1,5 @@
 'use strict';
 
-const pmat = {};
 
 
 //let testCases;
@@ -73,15 +72,15 @@ pmat.api= {
             if ((typeof pm.globals.get('recordIni') === "boolean" && pm.globals.get('recordIni')) || (typeof pm.globals.get('recordIni') === "string" && pm.globals.get('recordIni') === "true")) testCases.recordIni = true;
 
 
-        let delegateList = pmat.engine.pmGlobalsGetJSON('delegateList');
+        let testAtCaseList = pmat.engine.pmGlobalsGetJSON('testAtCaseList');
 
-        testCases.delegateList = [];
+        testCases.testAtCaseList = [];
 
-        if (delegateList) {
-            if (_.isArray(delegateList)) testCases.delegateList = delegateList;
+        if (testAtCaseList) {
+            if (_.isArray(testAtCaseList)) testCases.testAtCaseList = testAtCaseList;
             else {
-                if (delegateList.indexOf(',') === -1) testCases.delegateList[0] = delegateList;
-                else console.log('ERROR!!!: globals param delegateList is bad formatted. It should be JSON format. example: ["refres"]');
+                if (testAtCaseList.indexOf(',') === -1) testCases.testAtCaseList[0] = testAtCaseList;
+                else console.log('ERROR!!!: globals param testAtCaseList is bad formatted. It should be JSON format. example: ["refres"]');
             }
         }
 
@@ -122,7 +121,7 @@ pmat.engine = {
 
         try {
 
-            //Iterate through gloablas to find variables that will compose the runtime testCases. OK
+            //Iterate through gloablas to find variables that will compose the runtime testCases.
             testCasesEnvironment = pmat.engine.getEnvironmentVariables('testCase_', 'testConditions');
             //console.log('testCasesEnvironment',testCasesEnvironment);
             // Set testCases initializing index and iteration
@@ -525,15 +524,16 @@ pmat.engine = {
 
 
         //delegate
-        let delegateList, delegateValue;
-        delegateList = pmat.util.getValueObj(testCases, 'delegateList');
-        // delegateValue by default is false unless it is in the list of delegated.
-        if (delegateList) delegateValue = delegateList.includes(pm.info.requestName);
-        else delegateValue = false;
+        let testAtCaseList, delegateValue;
+        testAtCaseList = pmat.util.getValueObj(testCases, 'testAtCaseList');
+        // delegateValue by default is true. Conditions are at request level unless specified in testAtCaseList.
+        delegateValue = true;
+        if (testAtCaseList && testAtCaseList.includes(pm.info.requestName)) delegateValue = false;
 
         let pathDelegate = testCaseIndexValue + '.testConditions.' + pm.info.requestName + '.expectedResponse.' + pm.response.code + '.delegate';
         //delegate is saved if it's NOT well formed
         //if(typeof pmat.util.getValueObj(testCases, pathDelegate) !== 'boolean')
+        console.log('pmat.util.setValueObj(',testCases, pathDelegate, delegateValue);
         pmat.util.setValueObj(testCases, pathDelegate, delegateValue);
 
         //excludeResponseBodyNodes
@@ -904,6 +904,7 @@ pmat.util = {
                     }
                 }
             }
+            if(valuReturn === FAILED) throw {name:'setValueObjException',msg:obj+': ' + valuePath + ': ' + value};
         }
         catch (e) {
             console.log('Warning: There was an exception in setValueObj(obj, valuePath, value)... obj: ' + obj + ' valuePath: ' + valuePath + ' value: ' + value);
@@ -1074,6 +1075,7 @@ pmat.util = {
 };
 
 
+const pmat = {};
 
 
 const testCases = pmat.api.getTestCases();
