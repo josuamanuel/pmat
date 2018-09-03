@@ -122,7 +122,7 @@ pmat.engine = {
 
         try {
 
-            //Iterate through gloablas to find variables that will compose the runtime testCases.
+            //Iterate through gloablas to find variables that will compose the runtime testCases. OK
             testCasesEnvironment = pmat.engine.getEnvironmentVariables('testCase_', 'testConditions');
             //console.log('testCasesEnvironment',testCasesEnvironment);
             // Set testCases initializing index and iteration
