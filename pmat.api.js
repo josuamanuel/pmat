@@ -1,6 +1,5 @@
 'use strict';
 
-//@deleteNextLine
 const pmat = {};
 
 //@deleteNextLine

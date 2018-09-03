@@ -1,5 +1,6 @@
 'use strict';
 
+const pmat = {};
 
 
 //let testCases;
@@ -1074,8 +1075,6 @@ pmat.util = {
     }
 };
 
-
-const pmat = {};
 
 
 const testCases = pmat.api.getTestCases();
