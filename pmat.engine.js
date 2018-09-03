@@ -503,7 +503,7 @@ pmat.engine = {
         //console.log(toTestOutputPath, testCases);
 
         if (toTestOutput === null || toTestExpectedResponse === null) {
-            pm.test('A previous record creates an Ouput and expected Output to be used in test mode',
+            pm.test('Test mode uses testCases requiring output responseBody and testConditions expected response... These values were set up in last record. Did last record execution was setup correctly?',
                 function () {
                     pm.expect(toTestOutput).to.not.equal(null);
                     pm.expect(toTestExpectedResponse).to.not.equal(null);
