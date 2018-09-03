@@ -55,6 +55,7 @@ pmat.util = {
                     }
                 }
             }
+            if(valuReturn === FAILED) throw {name:'setValueObjException',msg:obj+': ' + valuePath + ': ' + value};
         }
         catch (e) {
             console.log('Warning: There was an exception in setValueObj(obj, valuePath, value)... obj: ' + obj + ' valuePath: ' + valuePath + ' value: ' + value);

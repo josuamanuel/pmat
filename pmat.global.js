@@ -533,6 +533,7 @@ pmat.engine = {
         let pathDelegate = testCaseIndexValue + '.testConditions.' + pm.info.requestName + '.expectedResponse.' + pm.response.code + '.delegate';
         //delegate is saved if it's NOT well formed
         //if(typeof pmat.util.getValueObj(testCases, pathDelegate) !== 'boolean')
+        console.log('pmat.util.setValueObj(',testCases, pathDelegate, delegateValue);
         pmat.util.setValueObj(testCases, pathDelegate, delegateValue);
 
         //excludeResponseBodyNodes
@@ -903,6 +904,7 @@ pmat.util = {
                     }
                 }
             }
+            if(valuReturn === FAILED) throw {name:'setValueObjException',msg:obj+': ' + valuePath + ': ' + value};
         }
         catch (e) {
             console.log('Warning: There was an exception in setValueObj(obj, valuePath, value)... obj: ' + obj + ' valuePath: ' + valuePath + ' value: ' + value);
