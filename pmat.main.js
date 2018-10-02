@@ -22,3 +22,8 @@ try {
 
 //@deleteNextLine
 module.exports = testCases;
+
+(function()
+{
+    return pmat;
+})();

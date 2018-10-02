@@ -1096,3 +1096,8 @@ try {
     //postman.setNextRequest('pmat-end');
 }
 
+
+(function()
+{
+    return pmat;
+})();
