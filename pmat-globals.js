@@ -481,7 +481,7 @@ pmat.engine = {
         testCondition = pmat.engine.selectTestCondition(testCaseRN, testConditionsRN)
         testConditionER = pmat.engine.selectTestConditionER(testCaseRN, testConditionsRN)
 
-        let testUserChange = testUserChange(testCondition)
+        let testUserChange = pmat.engine.testUserChange(testCondition)
 
         /*
         testForRecord function:
