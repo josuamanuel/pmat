@@ -463,11 +463,11 @@ pmat.engine = {
         delegateValue = true
         if (testAtCaseList && testAtCaseList.includes(pm.info.requestName)) delegateValue = false
 
+        let testCaseIndexValue = 'testCase.' + testCases.index + '.value'
         let pathDelegate = testCaseIndexValue + '.testConditions.' + pm.info.requestName + '.delegate'
         pmat.util.setValueObj(testCases, pathDelegate, delegateValue)
 
         // Search for Test conditions.
-        let testCaseIndexValue = 'testCase.' + testCases.index + '.value'
         let testCaseRNPath = testCaseIndexValue + '.testConditions.' + pm.info.requestName
         let testCaseRN = pmat.util.getValueObj(testCases, testCaseRNPath)
         let testConditionsRNPath = 'testConditions.' + pm.info.requestName
