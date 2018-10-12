@@ -1,0 +1,19 @@
+{
+  "name": "pmat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josuamanuel/pmat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josuamanuel/pmat/issues"
+  },
+  "homepage": "https://github.com/josuamanuel/pmat#readme"
+}
