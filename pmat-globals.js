@@ -654,14 +654,20 @@ pmat.engine = {
         //If there is no testCondition it is because is new record so it has not been modified.
         if(testCondition) return false
 
-
-        if (testCondition.excludeResponseBodyNodes === [''] &&
-            testCondition.testDescOK === 'Add something...!!!'
-        )
+        try
         {
-            return false
-        }
 
+            if (testCondition.excludeResponseBodyNodes === [''] &&
+                testCondition.testDescOK === 'Add something...!!!'
+            )
+            {
+                return false
+            }
+        }catch(e)
+        {
+            console.log(testCondition)
+        }
+        
         return true
 
     },
