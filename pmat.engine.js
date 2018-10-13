@@ -431,7 +431,8 @@ pmat.engine = {
         }else
         {
             pmat.engine.markTestAsSkip()
-            pmat.engine.createNewTestCondition(testCases)
+            if(testCaseRN === {} || (testCaseRN.delegate === true && testConditionsRN === {})) pmat.engine.markTestAsSkip()
+            else pmat.engine.createNewTestCondition(testCases)
             pmat.engine.writeOutput(testCases)
 
         }
