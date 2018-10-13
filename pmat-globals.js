@@ -1201,9 +1201,10 @@ pm.variables.set('testCases', testCases)
 try {
     pmat.api.loader()
 } catch (e) {
+    console.log(e.stack)
     console.log('failed to execute pmat.api.loader: exception name: ' + e.name + ' message: ' + e.message)
     console.log('testCases: ', testCases)
-    
+
     pm.test('Critital ERROR!!!! There have been exceptions... take a look to the console logs to see them...',
         function () {
             pm.expect(0).to.equal(1)
