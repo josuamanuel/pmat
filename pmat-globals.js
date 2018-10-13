@@ -532,7 +532,7 @@ pmat.engine = {
                     pmat.engine.markTestAsSkip()
                     pmat.engine.writeOutput(testCases)
                     pmat.engine.deleteOldTestCondition(testConditionER)
-                    pmat.engine.createNewTestCondition(testCondition)
+                    pmat.engine.createNewTestCondition(testCases)
                 }
             }else
             {
@@ -544,7 +544,7 @@ pmat.engine = {
         }else
         {
             pmat.engine.markTestAsSkip()
-            pmat.engine.createNewTestCondition(testCondition)
+            pmat.engine.createNewTestCondition(testCases)
             pmat.engine.writeOutput(testCases)
 
         }
