@@ -812,7 +812,7 @@ pmat.engine = {
         } else result = _.isEqualWith(output, responseJson)
 
         if (result) console.log('TEST OK :-)')
-        else console.log('TEST FAILED!!! response doesnt match expected result', JSON.stringify(output), JSON.stringify(responseJson))
+        else console.log(`TEST ${pm.info.requestName} FAILED!!!  response doesnt match expected result`, JSON.stringify(output), JSON.stringify(responseJson))
 
         pm.test(idTest + ': Validating Response body. ' + description,
             function () {
