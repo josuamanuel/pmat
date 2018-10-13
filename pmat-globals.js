@@ -773,6 +773,7 @@ pmat.engine = {
     toTest: function (toTestExpectedResponse, output, idTest) {
         let toTestStatusValue = [], toTestExpectedResponseCond, excludeNodes, result, responseJson
 
+        console.log({toTestExpectedResponse, output, idTest})
         //console.log('in toTest', toTestExpectedResponse,output, idTest)
 
         //nothing to test.
