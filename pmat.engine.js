@@ -371,12 +371,10 @@ pmat.engine = {
         //testConditions
         //let pathCondRBN = 'testConditions.' + pm.info.requestName + '.expectedResponse.' + pm.response.code + '.excludeResponseBodyNodes'
 
-        let testCondition, testConditionER
+        let testCondition, testConditionER, testUserChange
 
         testCondition = pmat.engine.selectTestCondition(testCaseRN, testConditionsRN)
         testConditionER = pmat.engine.selectTestConditionER(testCaseRN, testConditionsRN)
-
-        let testUserChange = pmat.engine.testUserChange(testCondition)
 
         /*
         testForRecord function:
@@ -389,6 +387,9 @@ pmat.engine = {
         {
             if(pmat.engine.expectedStatuDifResult(testConditionER))
             {
+
+                testUserChange = pmat.engine.testUserChange(testCondition)
+
                 if(testUserChange)
                 {
                     pmat.engine.masrkTestAsKO()
@@ -545,9 +546,8 @@ pmat.engine = {
 
     testUserChange: function (testCondition) {
 
-
         //If there is no testCondition it is because is new record so it has not been modified.
-        if(testCondition) return false
+        if(!testCondition) return false
 
         try
         {
@@ -560,9 +560,9 @@ pmat.engine = {
             }
         }catch(e)
         {
-            console.log(testCondition)
+            console.log('Expecting testCondition.excludeResponseBodyNodes and testCondition.testDescOK and found: ' + testCondition)
         }
-        
+
         return true
 
     },
