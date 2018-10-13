@@ -760,10 +760,11 @@ pmat.engine = {
         if (!delegate) {
             
             testDataCurrentName = 'testCase_' + testCases.testCase[testCases.index].id
-            if(toTestExpectedResponse && toTestOutput && testDataCurrentName)
+            if(toTestExpectedResponse && toTestOutput)
                 pmat.engine.toTest(toTestExpectedResponse, toTestOutput, testDataCurrentName)
         } else {
-            if (toTestExpectedResponseRequest && toTestOutput && testDataCurrentName) {
+
+            if (toTestExpectedResponseRequest && toTestOutput) {
                 testDataCurrentName = 'testConditions'
                 pmat.engine.toTest(toTestExpectedResponseRequest, toTestOutput, testDataCurrentName)
             }
