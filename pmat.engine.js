@@ -352,15 +352,33 @@ pmat.engine = {
 
 
         //delegate
-        let testAtCaseList, delegateValue
+        let testAtCaseList, delegateValue, changeOrCreateNeeded
         testAtCaseList = pmat.util.getValueObj(testCases, 'testAtCaseList')
-        // delegateValue by default is true. Conditions are at request level unless specified in testAtCaseList.
-        delegateValue = true
-        if (testAtCaseList && testAtCaseList.includes(pm.info.requestName)) delegateValue = false
-
         let testCaseIndexValue = 'testCase.' + testCases.index + '.value'
         let pathDelegate = testCaseIndexValue + '.testConditions.' + pm.info.requestName + '.delegate'
-        pmat.util.setValueObj(testCases, pathDelegate, delegateValue)
+        let currentDelegateValue = pmat.util.getValueObj(testCases, pathDelegate)
+
+        delegateValue = true
+        changeOrCreateNeeded = false
+
+        if ( typeof currentDelegateValue !== 'boolean' )
+        {
+            changeOrCreateNeeded = true
+        }
+
+        if (testAtCaseList && testAtCaseList.includes(pm.info.requestName))
+        {
+            delegateValue = false
+
+            if(currentDelegateValue !== delegateValue) changeOrCreateNeeded = true
+        }
+
+        if(changeOrCreateNeeded)      // We need to change the value
+        {
+            pmat.util.setValueObj(testCases, pathDelegate, delegateValue)
+        }
+
+
 
         // Search for Test conditions.
         let testCaseRNPath = testCaseIndexValue + '.testConditions.' + pm.info.requestName
@@ -414,7 +432,7 @@ pmat.engine = {
         {
             pmat.engine.markTestAsSkip()
             pmat.engine.createNewTestCondition(testCondition)
-            pmat.engine.writeOutput(testCondition)
+            pmat.engine.writeOutput(testCases)
 
         }
       
@@ -472,11 +490,11 @@ pmat.engine = {
     },
 
     deleteOldTestCondition: function(testConditionER) {
-        Object.Keys(testConditionER).map(x => testConditionER[x] = {})
+        Object.Keys(testConditionER).map(x => delete testConditionER[x])
     },
 
 
-    createNewTestCondition: function() {
+    createNewTestCondition: function(testCases) {
 
 
         // Creating all the elements under testCases.testCase.{testCases.index}.value.testConditions
@@ -485,6 +503,7 @@ pmat.engine = {
 
         //excludeResponseBodyNodes
         let pathRBN = testCaseIndexValue + '.testConditions.' + pm.info.requestName + '.expectedResponse.' + pm.response.code + '.excludeResponseBodyNodes'
+        //let pathRBN = 'excludeResponseBodyNodes'
         //excludeResponseBodyNodes is saved if it's NOT well formed as array. 
         if (!_.isArray(pmat.util.getValueObj(testCases, pathRBN)))
             pmat.util.setValueObj(testCases, pathRBN, [''])
