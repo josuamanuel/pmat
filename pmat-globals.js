@@ -745,8 +745,7 @@ pmat.engine = {
         //console.log('output to test: ', toTestOutput)
         //console.log(toTestOutputPath, testCases)
 
-        console.log({toTestOutput, toTestExpectedResponse})
-        
+        console.log({delegate, toTestOutput, toTestExpectedResponse, toTestExpectedResponseRequest})
         if (toTestOutput === null || toTestExpectedResponse === null) {
             pm.test('Test mode uses testCases requiring output responseBody and testConditions expected response... These values were set up in last record. Did last record execution was setup correctly?',
                 function () {
