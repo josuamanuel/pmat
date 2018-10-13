@@ -26,12 +26,11 @@ try {
     //postman.setNextRequest('pmat-end')
 }
 
-//@deleteNextLine
-module.exports = testCases
-
-/*
 (
     function() { return pmat}
 )()
 
-*/
+
+//@deleteNextLine
+module.exports = testCases
+
