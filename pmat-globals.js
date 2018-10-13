@@ -1,4 +1,3 @@
-'use strict'
 
 const pmat = {}
 
@@ -1235,6 +1234,5 @@ try {
 (
     function() { return pmat}
 )()
-
 
 

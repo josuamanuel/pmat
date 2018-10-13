@@ -1,3 +1,4 @@
+//@deleteNextLine
 'use strict'
 
 const pmat = {}

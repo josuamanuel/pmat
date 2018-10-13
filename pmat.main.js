@@ -30,7 +30,6 @@ try {
     function() { return pmat}
 )()
 
-
 //@deleteNextLine
 module.exports = testCases
 
