@@ -51,8 +51,16 @@ pmat.api= {
             //console.log('flagr_' + pm.info.requestId + '-' + pm.info.iteration)
             pm.variables.set('flagr_' + pm.info.requestId + pm.info.iteration, true)
 
-            if (testCases.record || testCases.recordIni) pmat.api.record()
-            else pmat.api.test()
+            if (testCases.record || testCases.recordIni)
+            {
+                console.log('Executing record...')
+                pmat.api.record()
+            }
+            else
+            {
+                console.log('Executing test...')
+                pmat.api.test()
+            }
         }
 
     },
