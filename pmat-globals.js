@@ -1,3 +1,4 @@
+'use strict'
 
 const pmat = {}
 
@@ -591,13 +592,23 @@ pmat.engine = {
     //OK
     writeOutput: function(testCases) {
 
+        let output
         let testCaseIndexValue = 'testCase.' + testCases.index + '.value'
 
         // Creating all the elements under testCases.testCase.{testCases.index}.value.output
         pmat.util.setValueObj(testCases, testCaseIndexValue + '.output.' + pm.info.requestName + '.status', pm.response.code.toString())
 
         //responseBody is saved in all cases a record* is true
-        pmat.util.setValueObj(testCases, testCaseIndexValue + '.output.' + pm.info.requestName + '.responseBody', pm.response.json())
+        try
+        {
+            output = pm.response.json()
+        }catch(e)
+        {
+            output = pm.response.text()
+            console.log('output saved in text mode rather than JSON')
+        }
+
+        pmat.util.setValueObj(testCases, testCaseIndexValue + '.output.' + pm.info.requestName + '.responseBody', output)
 
     },
 
