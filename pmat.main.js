@@ -11,6 +11,9 @@ pmat.api = require('./pmat.api')
 const testCases = pmat.api.getTestCases()
 pm.variables.set('testCases', testCases)
 
+//@deleteNextLine
+const unitTest = true
+
 try {
     if(!unitTest) pmat.api.loader()
 } catch (e) {
