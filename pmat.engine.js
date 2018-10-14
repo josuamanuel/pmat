@@ -430,11 +430,9 @@ pmat.engine = {
             }
         }else
         {
-            pmat.engine.markTestAsSkip()
             if(testCaseRN === {} || (testCaseRN.delegate === true && testConditionsRN === {})) pmat.engine.markTestAsSkip()
             else pmat.engine.createNewTestCondition(testCases)
             pmat.engine.writeOutput(testCases)
-
         }
       
 
@@ -612,9 +610,27 @@ pmat.engine = {
         return expectedRC
     },
 
+    skipTest: function()
+    {
+        let testCaseIndexValue = 'testCase.' + testCases.index + '.value'
+        // Search for Test conditions.
+        let testCaseRNPath = testCaseIndexValue + '.testConditions.' + pm.info.requestName
+        let testCaseRN = pmat.util.getValueObj(testCases, testCaseRNPath)
+        let testConditionsRNPath = 'testConditions.' + pm.info.requestName
+        let testConditionsRN = pmat.util.getValueObj(testCases, testConditionsRNPath)
+
+        if(testCaseRN === {} || (testCaseRN.delegate === true && testConditionsRN === {})) return true
+        else return false
+    },
+
     test: function () {
         let toTestExpectedResponsePath, toTestExpectedResponse, toTestExpectedResponseRequest, toTestOutputPath, toTestOutput, testDataCurrentName, delegate, requestNamePath
 
+        if (pmat.engine.skipTest())
+        {
+            pmat.engine.markTestAsSkip()
+            return
+        }
         //console.log(JSON.stringify(testCases))
 
         // obtain toTest,
