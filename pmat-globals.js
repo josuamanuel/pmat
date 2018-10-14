@@ -727,12 +727,14 @@ pmat.engine = {
     {
         let testCaseIndexValue = 'testCase.' + testCases.index + '.value'
         // Search for Test conditions.
-        console.log({testCaseRN, testConditionsRN})
+
         let testCaseRNPath = testCaseIndexValue + '.testConditions.' + pm.info.requestName
         let testCaseRN = pmat.util.getValueObj(testCases, testCaseRNPath)
         let testConditionsRNPath = 'testConditions.' + pm.info.requestName
         let testConditionsRN = pmat.util.getValueObj(testCases, testConditionsRNPath)
 
+        console.log({testCaseRN, testConditionsRN})
+        
         if(testCaseRN === {} || (testCaseRN && testCaseRN.delegate === true && testConditionsRN === {}))
         {
             console.info('skipTest: true')
