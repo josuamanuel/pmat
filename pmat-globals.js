@@ -543,7 +543,7 @@ pmat.engine = {
             }
         }else
         {
-            if(testCaseRN === {} || (testCaseRN.delegate === true && testConditionsRN === {})) pmat.engine.markTestAsSkip()
+            if(pmat.engine.skipTest()) pmat.engine.markTestAsSkip()
             else pmat.engine.createNewTestCondition(testCases)
             pmat.engine.writeOutput(testCases)
         }
@@ -732,7 +732,7 @@ pmat.engine = {
         let testConditionsRNPath = 'testConditions.' + pm.info.requestName
         let testConditionsRN = pmat.util.getValueObj(testCases, testConditionsRNPath)
 
-        if(testCaseRN === {} || (testCaseRN.delegate === true && testConditionsRN === {})) return true
+        if(testCaseRN === {} || (testCaseRN && testCaseRN.delegate === true && testConditionsRN === {})) return true
         else return false
     },
 
