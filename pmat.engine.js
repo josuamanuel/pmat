@@ -614,6 +614,7 @@ pmat.engine = {
     {
         let testCaseIndexValue = 'testCase.' + testCases.index + '.value'
         // Search for Test conditions.
+        console.log({testCaseRN, testConditionsRN})
         let testCaseRNPath = testCaseIndexValue + '.testConditions.' + pm.info.requestName
         let testCaseRN = pmat.util.getValueObj(testCases, testCaseRNPath)
         let testConditionsRNPath = 'testConditions.' + pm.info.requestName
