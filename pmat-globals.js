@@ -491,8 +491,6 @@ pmat.engine = {
             pmat.util.setValueObj(testCases, pathDelegate, delegateValue)
         }
 
-
-
         // Search for Test conditions.
         let testCaseRNPath = testCaseIndexValue + '.testConditions.' + pm.info.requestName
         let testCaseRN = pmat.util.getValueObj(testCases, testCaseRNPath)
@@ -685,6 +683,28 @@ pmat.engine = {
         return testCondition
     },
 
+
+    selectRequest: function(testCases) {
+
+        let testCaseIndexValue = 'testCase.' + testCases.index + '.value'
+        // Search for Test conditions.
+
+        let testCaseRNPath = testCaseIndexValue + '.testConditions.' + pm.info.requestName
+        let testCaseRN = pmat.util.getValueObj(testCases, testCaseRNPath)
+        let testConditionsRNPath = 'testConditions.' + pm.info.requestName
+        let testConditionsRN = pmat.util.getValueObj(testCases, testConditionsRNPath)
+
+        //console.log({testCases, testCaseRN, testConditionsRN})
+
+        if(testCaseRN && testCaseRN.delegate === false )
+        {
+            return testConditionsRN
+        }else
+        {
+            return testCaseRN
+        }
+    },
+
     testUserChange: function (testCondition) {
 
         //If there is no testCondition it is because is new record so it has not been modified.
@@ -692,8 +712,8 @@ pmat.engine = {
 
         try
         {
-
-            if (testCondition.excludeResponseBodyNodes === [''] &&
+            if (testCondition.excludeResponseBodyNodes.length === 1 && 
+                testCondition.excludeResponseBodyNodes[0] === '' && 
                 testCondition.testDescOK === 'Add something...!!!'
             )
             {
@@ -705,7 +725,6 @@ pmat.engine = {
         }
 
         return true
-
     },
 
     validateAndReturnStatus: function (testConditionER) {
@@ -733,15 +752,15 @@ pmat.engine = {
         let testConditionsRNPath = 'testConditions.' + pm.info.requestName
         let testConditionsRN = pmat.util.getValueObj(testCases, testConditionsRNPath)
 
-        console.log({testCases, testCaseRN, testConditionsRN})
+        //console.log({testCases, testCaseRN, testConditionsRN})
 
         if(_.isEmpty(testCaseRN) || (testCaseRN && testCaseRN.delegate === true && _.isEmpty(testConditionsRN)))
         {
-            console.info('skipTest: true')
+            //console.info('skipTest: true')
             return true
         }else
         {
-            console.info('skipTest: false')
+            //console.info('skipTest: false')
             return false
         }
     },
