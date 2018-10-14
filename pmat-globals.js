@@ -1285,6 +1285,13 @@ const testCases = pmat.api.getTestCases()
 pm.variables.set('testCases', testCases)
 
 
+try{
+    unitTest
+}catch(e)
+{
+    unitTest = false
+}
+
 try {
     if(!unitTest) pmat.api.loader()
 } catch (e) {

@@ -12,7 +12,14 @@ const testCases = pmat.api.getTestCases()
 pm.variables.set('testCases', testCases)
 
 //@deleteNextLine
-const unitTest = true
+let unitTest
+
+try{
+    unitTest
+}catch(e)
+{
+    unitTest = false
+}
 
 try {
     if(!unitTest) pmat.api.loader()
