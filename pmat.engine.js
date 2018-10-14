@@ -641,7 +641,7 @@ pmat.engine = {
 
         //console.log({testCases, testCaseRN, testConditionsRN})
 
-        if(_.isEmpty(testCaseRN) || (testCaseRN && testCaseRN.delegate === true && _.isEmpty(testConditionsRN)))
+        if(pmat.util.isEmptyObj(testCaseRN) || (testCaseRN && testCaseRN.delegate === true && pmat.util.isEmptyObj(testConditionsRN)))
         {
             //console.info('skipTest: true')
             return true

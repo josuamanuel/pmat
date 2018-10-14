@@ -754,7 +754,7 @@ pmat.engine = {
 
         //console.log({testCases, testCaseRN, testConditionsRN})
 
-        if(_.isEmpty(testCaseRN) || (testCaseRN && testCaseRN.delegate === true && _.isEmpty(testConditionsRN)))
+        if(pmat.util.isEmptyObj(testCaseRN) || (testCaseRN && testCaseRN.delegate === true && pmat.util.isEmptyObj(testConditionsRN)))
         {
             //console.info('skipTest: true')
             return true
@@ -1208,6 +1208,14 @@ pmat.util = {
 
         return arrayToReturn
     },
+
+    'isEmptyObj': function(obj)
+    {
+        if(!obj) return false
+    
+        return (Object.keys(obj).length === 0 && obj.constructor === Object)
+    },
+
     'sleep': function (milliseconds) {
         var start = new Date().getTime()
         for (var i = 0; i < 1e7; i++) {
