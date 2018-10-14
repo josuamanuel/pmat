@@ -497,7 +497,7 @@ pmat.engine = {
     },
 
     deleteOldTestCondition: function(testConditionER) {
-        Object.Keys(testConditionER).map(x => delete testConditionER[x])
+        Object.Keys(testConditionER).map(x => testConditionER[x] = undefined)
     },
 
 
