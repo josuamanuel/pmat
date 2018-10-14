@@ -735,7 +735,7 @@ pmat.engine = {
 
         console.log({testCases, testCaseRN, testConditionsRN})
 
-        if(testCaseRN === {} || (testCaseRN && testCaseRN.delegate === true && testConditionsRN === {}))
+        if(_.isEmpty(testCaseRN) || (testCaseRN && testCaseRN.delegate === true && _.isEmpty(testConditionsRN)))
         {
             console.info('skipTest: true')
             return true
