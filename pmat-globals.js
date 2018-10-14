@@ -732,8 +732,15 @@ pmat.engine = {
         let testConditionsRNPath = 'testConditions.' + pm.info.requestName
         let testConditionsRN = pmat.util.getValueObj(testCases, testConditionsRNPath)
 
-        if(testCaseRN === {} || (testCaseRN && testCaseRN.delegate === true && testConditionsRN === {})) return true
-        else return false
+        if(testCaseRN === {} || (testCaseRN && testCaseRN.delegate === true && testConditionsRN === {}))
+        {
+            console.info('skipTest: true')
+            return true
+        }else
+        {
+            console.info('skipTest: false')
+            return false
+        }
     },
 
     test: function () {
