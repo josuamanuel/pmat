@@ -1285,7 +1285,7 @@ const testCases = pmat.api.getTestCases()
 pm.variables.set('testCases', testCases)
 
 try {
-    pmat.api.loader()
+    if(!unitTest) pmat.api.loader()
 } catch (e) {
     console.log(e.stack)
     console.log('failed to execute pmat.api.loader: exception name: ' + e.name + ' message: ' + e.message)
