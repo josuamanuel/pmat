@@ -3,7 +3,7 @@
 Introduction
 ===
 
-pmat is a javascript library that integrates in a postman collection to automatize regression testing. 
+**pmat is a javascript library that integrates in a postman collection to automatize regression testing.**
 
 pmat cover the following functionlities:
 
@@ -33,7 +33,30 @@ Installation
 Example
 ======
 
+This step by step guide will demonstrate main functionalities of pmat.
+
+
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/75a7a3f77f8ac76c4d75#?env%5BAccount-info%205%20fixed%20users%5D=W3siZGVzY3JpcHRpb24iOnsiY29udGVudCI6IiIsInR5cGUiOiJ0ZXh0L3BsYWluIn0sInZhbHVlIjoiIiwia2V5Ijoibm90aGluZyIsImVuYWJsZWQiOnRydWV9LHsidmFsdWUiOiJ7XCJpbnB1dFwiOntcInVzZXJfaWRcIjpcImRyb2ZsN2M2XCJ9fSIsImtleSI6InRlc3RDYXNlXzAiLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjoie1wiaW5wdXRcIjp7XCJ1c2VyX2lkXCI6XCI5Z2xqYXBvNlwifX0iLCJrZXkiOiJ0ZXN0Q2FzZV8xIiwiZW5hYmxlZCI6dHJ1ZX0seyJ2YWx1ZSI6IntcImlucHV0XCI6e1widXNlcl9pZFwiOlwiYWRvcHY5c21cIn1cbiIsImtleSI6InRlc3RDYXNlXzIiLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjoie1wiaW5wdXRcIjp7XCJ1c2VyX2lkXCI6XCIyYXB1eHE3bVwifSIsImtleSI6InRlc3RDYXNlXzMiLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjoie1wiaW5wdXRcIjp7XCJ1c2VyX2lkXCI6XCI4ZndleW9vaVwifX1cbiIsImtleSI6InRlc3RDYXNlXzQiLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjoie1wiVXNlciBMb2dvbiBBdXRoZW50aWNhdGUgYW5kIGdldCBUb2tlbiBmcm9tIEFwcFwiOnt9LFwiR2V0IEFjY291bnRzXCI6e1wiZXhwZWN0ZWRSZXNwb25zZVwiOntcIjIwMFwiOntcImV4Y2x1ZGVSZXNwb25zZUJvZHlOb2Rlc1wiOltcIlwiXSxcInRlc3REZXNjT0tcIjpcIkFkZCBzb21ldGhpbmcuLi4hISFcIn19fSxcIkdldCBCYWxhbmNlc1wiOntcImV4cGVjdGVkUmVzcG9uc2VcIjp7XCIyMDBcIjp7XCJleGNsdWRlUmVzcG9uc2VCb2R5Tm9kZXNcIjpbXCIqKi5EYXRlVGltZVwiXSxcInRlc3REZXNjT0tcIjpcIkFkZCBzb21ldGhpbmcuLi4hISFcIn19fSxcIkdldCBUcmFuc2FjdGlvbnMgZmlsdGVyaW5nXCI6e1wiZXhwZWN0ZWRSZXNwb25zZVwiOntcIjIwMFwiOntcImV4Y2x1ZGVSZXNwb25zZUJvZHlOb2Rlc1wiOltcIlwiXSxcInRlc3REZXNjT0tcIjpcIkFkZCBzb21ldGhpbmcuLi4hISFcIn19fX0iLCJrZXkiOiJ0ZXN0Q29uZGl0aW9ucyIsImVuYWJsZWQiOnRydWV9XQ==)
+
+* Click to install set up example collection.
+
+
+The example collection is a normal collection that can be run using runner. The only changes made to the collection to add pmat functionality consists on adding the below line to pre-request and test scripts:
+
+~~~javascript
+eval(pm.globals.get('pmat'));
+~~~
+
+This can be done for each script but it is usually easier to add them to the main folder collection. These scripts will be executed before and after every request under the folder. This saves us from modifying all the requests.
+
+<img src="https://raw.githubusercontent.com/josuamanuel/pmat/master/resources/pmat%20pre-request%20eval.png" style="margin:20px 80px" height="400" width="320"/>
+
+<img src="https://raw.githubusercontent.com/josuamanuel/pmat/master/resources/pmat%20test%20eval.png" style="margin:20px 80px" height="400" width="320"/>
+
+Before executing the collection for the first time we need to set up the execution of pmat in record mode. pmat execution configuration is done by including parameters in global envioronment. Record mode can be scpecified by including a new variable with name record and value true as you can see below:
+
+<img src="https://raw.githubusercontent.com/josuamanuel/pmat/master/resources/globals%20record%20true.png" style="margin:20px 80px" height="400" width="320"/>
+
 
 to Test:
 
