@@ -25,13 +25,23 @@ pmat cover the following functionlities:
 Installation
 ======
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/edf8730443bc0965728b)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/46c9b91fd7e2517795f3)
 
 * Click to install set up collection in Postman.
 * Execute setup request in Postman
 
 Example
 ======
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/75a7a3f77f8ac76c4d75#?env%5BAccount-info%205%20fixed%20users%5D=W3siZGVzY3JpcHRpb24iOnsiY29udGVudCI6IiIsInR5cGUiOiJ0ZXh0L3BsYWluIn0sInZhbHVlIjoiIiwia2V5Ijoibm90aGluZyIsImVuYWJsZWQiOnRydWV9LHsidmFsdWUiOiJ7XCJpbnB1dFwiOntcInVzZXJfaWRcIjpcImRyb2ZsN2M2XCJ9fSIsImtleSI6InRlc3RDYXNlXzAiLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjoie1wiaW5wdXRcIjp7XCJ1c2VyX2lkXCI6XCI5Z2xqYXBvNlwifX0iLCJrZXkiOiJ0ZXN0Q2FzZV8xIiwiZW5hYmxlZCI6dHJ1ZX0seyJ2YWx1ZSI6IntcImlucHV0XCI6e1widXNlcl9pZFwiOlwiYWRvcHY5c21cIn1cbiIsImtleSI6InRlc3RDYXNlXzIiLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjoie1wiaW5wdXRcIjp7XCJ1c2VyX2lkXCI6XCIyYXB1eHE3bVwifSIsImtleSI6InRlc3RDYXNlXzMiLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjoie1wiaW5wdXRcIjp7XCJ1c2VyX2lkXCI6XCI4ZndleW9vaVwifX1cbiIsImtleSI6InRlc3RDYXNlXzQiLCJlbmFibGVkIjp0cnVlfSx7InZhbHVlIjoie1wiVXNlciBMb2dvbiBBdXRoZW50aWNhdGUgYW5kIGdldCBUb2tlbiBmcm9tIEFwcFwiOnt9LFwiR2V0IEFjY291bnRzXCI6e1wiZXhwZWN0ZWRSZXNwb25zZVwiOntcIjIwMFwiOntcImV4Y2x1ZGVSZXNwb25zZUJvZHlOb2Rlc1wiOltcIlwiXSxcInRlc3REZXNjT0tcIjpcIkFkZCBzb21ldGhpbmcuLi4hISFcIn19fSxcIkdldCBCYWxhbmNlc1wiOntcImV4cGVjdGVkUmVzcG9uc2VcIjp7XCIyMDBcIjp7XCJleGNsdWRlUmVzcG9uc2VCb2R5Tm9kZXNcIjpbXCIqKi5EYXRlVGltZVwiXSxcInRlc3REZXNjT0tcIjpcIkFkZCBzb21ldGhpbmcuLi4hISFcIn19fSxcIkdldCBUcmFuc2FjdGlvbnMgZmlsdGVyaW5nXCI6e1wiZXhwZWN0ZWRSZXNwb25zZVwiOntcIjIwMFwiOntcImV4Y2x1ZGVSZXNwb25zZUJvZHlOb2Rlc1wiOltcIlwiXSxcInRlc3REZXNjT0tcIjpcIkFkZCBzb21ldGhpbmcuLi4hISFcIn19fX0iLCJrZXkiOiJ0ZXN0Q29uZGl0aW9ucyIsImVuYWJsZWQiOnRydWV9XQ==)
+
+to Test:
+
+* Click to install set up example collection.
+* Click runner option in newman.
+* Configure the runner execution with the following values:
+
+
 
 
 https://raw.githubusercontent.com/josuamanuel/pmat/master/pmat-globals.js
