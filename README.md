@@ -49,13 +49,13 @@ eval(pm.globals.get('pmat'));
 
 This can be done for each script but it is usually easier to add them to the main folder collection. These scripts will be executed before and after every request under the folder. This saves us from modifying all the requests.
 
-<img src="https://raw.githubusercontent.com/josuamanuel/pmat/master/resources/pmat%20pre-request%20eval.png" style="margin:20px 80px" height="220" width="320"/>
+<img src="https://raw.githubusercontent.com/josuamanuel/pmat/master/resources/pmat%20pre-request%20eval.png" style="margin:20px 80px" height="320" width="420"/>
 
-<img src="https://raw.githubusercontent.com/josuamanuel/pmat/master/resources/pmat%20test%20eval.png" style="margin:20px 80px" height="220" width="320"/>
+<img src="https://raw.githubusercontent.com/josuamanuel/pmat/master/resources/pmat%20test%20eval.png" style="margin:20px 80px" height="320" width="420"/>
 
 Before executing the collection for the first time we need to set up the execution of pmat in record mode. pmat execution configuration is done by including parameters in global envioronment. Record mode can be scpecified by including a new variable with name record and value true as you can see below:
 
-<img src="https://raw.githubusercontent.com/josuamanuel/pmat/master/resources/globals%20record%20true.png" style="margin:20px 80px" height="220" width="320"/>
+<img src="https://raw.githubusercontent.com/josuamanuel/pmat/master/resources/globals%20record%20true.png" style="margin:20px 80px" height="320" width="420"/>
 
 
 to Test:
@@ -65,7 +65,7 @@ to Test:
 * Configure the runner execution with the following values:
 
 
-<img src="https://raw.githubusercontent.com/josuamanuel/pmat/master/resources/Collection%20Runner%20execution%20parameters.png" style="margin:20px 80px" height="320" width="320"/>
+<img src="https://raw.githubusercontent.com/josuamanuel/pmat/master/resources/Collection%20Runner%20execution%20parameters.png" style="margin:20px 80px" height="420" width="420"/>
 
 
 https://raw.githubusercontent.com/josuamanuel/pmat/master/pmat-globals.js
