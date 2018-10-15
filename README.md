@@ -42,7 +42,7 @@ to Test:
 * Configure the runner execution with the following values:
 
 
-<img src="https://raw.githubusercontent.com/josuamanuel/pmat/master/resources/Collection%20Runner%20execution%20parameters.png" style="middle" height="400" width="320"/>
+<img src="https://raw.githubusercontent.com/josuamanuel/pmat/master/resources/Collection%20Runner%20execution%20parameters.png" style="margin:20px 80px" height="400" width="320"/>
 
 
 https://raw.githubusercontent.com/josuamanuel/pmat/master/pmat-globals.js
