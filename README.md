@@ -1,4 +1,4 @@
-# pmat - Postman Automation Testing -
+# **pmat - Postman Automation Testing -**
 
 Introduction
 ===
@@ -44,7 +44,7 @@ pmat covers the following functionlities:
    * API to save input data for other executions.
 
 Installation
-======
+===
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/46c9b91fd7e2517795f3)
 
@@ -52,7 +52,7 @@ Installation
 * Execute setup request in Postman
 
 Example
-======
+===
 
 This step by step guide will demonstrate main functionalities of pmat.
 
@@ -109,8 +109,8 @@ Examine the following code
     # Let me re-iterate ...
     for i in 1 .. 10 { do-something(i) }
    
-An h1 header
-======
+##An h1 header
+---
 
 this is a test
 
