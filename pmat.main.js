@@ -12,17 +12,19 @@ const testCases = pmat.api.getTestCases()
 pm.variables.set('testCases', testCases)
 
 //@deleteNextLine
-let unitTest
+const unitTest = require('./unitTest')
+
+let unitTestMode = true
 
 try{
     unitTest
 }catch(e)
 {
-    unitTest = false
+    unitTestMode = false
 }
 
 try {
-    if(!unitTest) pmat.api.loader()
+    if(!unitTestMode) pmat.api.loader()
 } catch (e) {
     console.log(e.stack)
     console.log('failed to execute pmat.api.loader: exception name: ' + e.name + ' message: ' + e.message)
