@@ -116,9 +116,10 @@ to Test:
       "200": {
         "excludeResponseBodyNodes": [
           "contract.audit.**.timestamp",
-          "contract.*.token
+          "contract.*.token"
         ],
-      "testDescOK": "Add something...!!!"
+        "testDescOK": "Add something...!!!"
+      }
     }
   }
 },
