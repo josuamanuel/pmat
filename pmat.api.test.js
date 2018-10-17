@@ -2,44 +2,29 @@
 //@deleteNextLine
 const pmat = {}
 
-
-//@deleteNextLine
-const pm = require('./pm')
-
-//@deleteNextLine
 pmat.api = require('./pmat.api')
 
-const testCases = pmat.api.getTestCases()
-pm.variables.set('testCases', testCases)
+// this is the mocked versions
 
-//@deleteNextLine
-let unitTest
+/*
 
-try{
-    unitTest
-}catch(e)
-{
-    unitTest = false
-}
+const pm = require('./mockPm')
+pmat.engine = require('./mockEngine')
 
-try {
-    if(!unitTest) pmat.api.loader()
-} catch (e) {
-    console.log(e.stack)
-    console.log('failed to execute pmat.api.loader: exception name: ' + e.name + ' message: ' + e.message)
-    console.log('testCases: ', testCases)
+const testCasesTest = require('./mockTestCasesTest')
 
-    pm.test('Critital ERROR!!!! There have been exceptions... take a look to the console logs to see them...',
-        function () {
-            pm.expect(0).to.equal(1)
-        }
-    )
-    //postman.setNextRequest('pmat-end')
-}
+pmat.api.loader()
 
-(
-    function() { return pmat}
-)()
+if(pmat.engine.NewRunBeingCalled) console.log('test OK')
+else console.log('test failed')
 
-//@deleteNextLine
-module.exports = testCases
+if(pmat.engine.NewiterationBeingCalled) console.log('test OK')
+else console.log('test failed')
+
+if(pmat.engine.testBeingCalled) console.log('test OK')
+else console.log('test failed')
+
+if(!pmat.engine.recordBeingCalled) console.log('test OK')
+else console.log('test failed')
+
+*/
