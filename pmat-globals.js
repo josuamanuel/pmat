@@ -335,6 +335,8 @@ pmat.engine = {
         for (let key in testCasesInput) {
             if (!pmat.engine.pmEnvironmentSetJSON(key, testCasesInput[key]))
                 console.log('Problems parsing: ' + key)
+            
+            console.log(`after setting variable for iteration: ${pm.info.iteration} ${key}, ${pm.environment.get(key)}`)
         }
     },
 
